@@ -1,0 +1,16 @@
+:root{--paper:#f3ede2;--card:#fbf8f2;--ink:#1f1b16;--mute:#6f675c;--line:#ddd3c3;--red:#c8372d;--blue:#2b4a8b;--ochre:#d9a441}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.6 "Manrope",system-ui,sans-serif}
+h1,h2,h3{font-family:"Rubik Mono One","Manrope",sans-serif;font-weight:400;line-height:1.15;margin:0}
+a{color:var(--blue)}
+img{display:block;max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:12px 22px;background:var(--ink);color:var(--paper);font:600 16px "Manrope",sans-serif;text-decoration:none;cursor:pointer}
+.btn.red{background:var(--red)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn svg{width:18px;height:18px}
+.tag{display:inline-block;font:700 12px "Manrope",sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:4px;background:var(--ink);color:var(--paper)}
+.tag.red{background:var(--red)}
+.torn{position:relative}
+.torn::after{content:"";position:absolute;left:0;right:0;bottom:-14px;height:16px;background:var(--paper);clip-path:polygon(0 40%,4% 70%,9% 35%,15% 80%,21% 45%,27% 75%,33% 30%,40% 70%,46% 40%,53% 85%,60% 35%,66% 70%,72% 40%,79% 80%,85% 45%,91% 75%,96% 40%,100% 65%,100% 100%,0 100%)}

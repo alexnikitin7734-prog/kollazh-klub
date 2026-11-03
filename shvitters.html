@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Швиттерс — Коллажный клуб</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+html,body{height:100%}
+body{display:flex;flex-direction:column;overflow:hidden}
+nav{display:flex;align-items:center;gap:6px;padding:14px 24px;background:var(--ink);color:var(--paper)}
+nav a.home{color:var(--paper);opacity:.7;text-decoration:none;font-weight:600;margin-right:14px;font-size:15px}
+nav button{border:0;background:transparent;color:var(--paper);opacity:.55;font:600 15px "Manrope",sans-serif;padding:8px 14px;border-radius:999px;cursor:pointer}
+nav button.on{opacity:1;background:var(--red)}
+nav .sp{flex:1}
+nav .mus{opacity:.85;display:flex;align-items:center;gap:8px}
+nav .mus svg{width:18px;height:18px}
+nav .mode{flex:none;display:flex;background:rgba(255,255,255,.1);border-radius:999px;padding:3px;margin-right:6px}
+nav .mode button{padding:6px 12px}
+nav .mode button.on{background:var(--paper);color:var(--ink)}
+body.kids .ad,body:not(.kids) .kid{display:none!important}
+.step{display:none;flex:1;min-height:0}
+.step.on{display:flex}
+.pad{padding:40px 56px;gap:48px;width:100%;align-items:center}
+h1{font-size:58px}
+h2{font-size:38px;margin-bottom:18px}
+.big{font-size:22px;line-height:1.5}
+.mute{color:var(--mute)}
+#start .txt{flex:1;display:flex;flex-direction:column;gap:22px}
+#start img{height:100%;max-height:70vh;width:auto;border-radius:4px;box-shadow:0 20px 50px rgba(0,0,0,.18);transform:rotate(-2deg)}
+.tag{align-self:flex-start}
+.give{background:var(--card);border-radius:6px;padding:20px 24px;font-size:18px}
+.give b{display:block;margin-bottom:6px}
+.give ul{margin:0;padding-left:20px}
+#warm{flex-direction:row}
+#stage{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px 40px 20px;min-width:0;gap:16px}
+#slide{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;width:100%}
+#slide img{max-height:100%;max-width:100%;object-fit:contain;border-radius:3px;box-shadow:0 18px 44px rgba(0,0,0,.2);transition:opacity .5s}
+#cap{font:400 24px "Rubik Mono One",sans-serif;text-align:center}
+.ctrl{display:flex;align-items:center;gap:10px}
+.ctrl .n{font-weight:700;color:var(--mute);min-width:70px;text-align:center}
+.ic{width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:var(--paper);display:grid;place-items:center;cursor:pointer}
+.ic svg{width:20px;height:20px}
+.ic.red{background:var(--red)}
+.key{position:absolute;left:50%;top:38px;transform:translate(-50%,-12px);max-width:min(620px,86%);display:flex;gap:12px;align-items:center;background:var(--red);color:#fff;font:700 22px/1.35 "Manrope",sans-serif;padding:14px 20px;border-radius:8px;box-shadow:0 18px 40px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .5s,transform .5s}
+.key.on{opacity:1;transform:translate(-50%,0)}
+.key svg{width:26px;height:26px;flex:none}
+.bar{width:min(640px,80%);height:4px;background:var(--line);border-radius:2px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--red)}
+#side{width:360px;flex:none;background:var(--card);padding:28px 26px;display:flex;flex-direction:column;gap:14px;overflow:auto}
+#side img{border-radius:4px}
+#side h3{font:700 22px "Manrope",sans-serif}
+#side p{margin:0;font-size:17px}
+#wclock{font:400 34px "Rubik Mono One",sans-serif;color:var(--red)}
+#tech .txt,#proj .txt{flex:1;display:flex;flex-direction:column;gap:18px;min-width:0}
+#tech img,#proj .ex{width:46%;flex:none;border-radius:4px;box-shadow:0 18px 44px rgba(0,0,0,.18)}
+.rules{display:grid;gap:14px;counter-reset:r}
+.rules div{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;font-size:20px}
+.rules div::before{counter-increment:r;content:counter(r);font:400 26px "Rubik Mono One",sans-serif;color:var(--paper);background:var(--red);width:52px;height:52px;border-radius:50%;display:grid;place-items:center}
+.lv{display:grid;gap:10px}
+.lv div{background:var(--card);border-radius:6px;padding:14px 18px;font-size:18px}
+.lv b{color:var(--red)}
+#timer{font:400 96px/1 "Rubik Mono One",sans-serif;letter-spacing:-.02em}
+#timer.warn{color:var(--red)}
+.trow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+#banner{display:none;background:var(--red);color:#fff;font:700 20px "Manrope",sans-serif;padding:12px 18px;border-radius:6px}
+#show .txt{flex:1;display:flex;flex-direction:column;gap:22px}
+.qs{display:grid;gap:14px}
+.qs div{background:var(--card);border-radius:6px;padding:20px 24px;font-size:24px}
+.cred{font-size:12px;color:var(--mute);columns:2;column-gap:28px}
+.cred a{color:var(--mute)}
+@media (max-width:900px){
+body{overflow:auto;height:auto}
+nav{position:sticky;top:0;z-index:5;padding:10px 16px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a.home,nav button{flex:none;white-space:nowrap}
+nav .sp{display:none}
+.step.on{flex-direction:column}
+.pad{padding:24px 16px;gap:24px;flex-direction:column;align-items:stretch}
+h1{font-size:32px}
+h2{font-size:24px}
+.big{font-size:18px}
+#start img,#tech img,#proj .ex{width:100%;height:auto;max-height:none}
+#warm{flex-direction:column}
+#stage{padding:16px;min-height:70vh}
+#side{width:auto}
+#timer{font-size:56px}
+.qs div{font-size:18px}
+.cred{columns:1}
+}
+</style>
+</head>
+<body>
+<nav>
+<a class="home" href="./">Клуб</a>
+<button data-s="start" class="on">Старт</button>
+<button data-s="warm">Разминка и лекция</button>
+<button data-s="tech">Приём</button>
+<button data-s="proj">Проект</button>
+<button data-s="show">Показ</button>
+<span class="sp"></span>
+<div class="mode"><button data-m="ad" class="on">Взрослые</button><button data-m="kid">С детьми</button></div>
+<button class="mus" id="musBtn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg><span>Музыка: вкл</span></button>
+</nav>
+
+<section class="step on" id="start"><div class="pad" style="display:flex">
+<div class="txt">
+<span class="tag red">Художник в гостях</span>
+<h1>Курт Швиттерс</h1>
+<p class="big ad">Ганновер, 1887 — Кендал, 1948. Человек, который собирал искусство из трамвайных билетов, чеков и обёрток и назвал это словом Merz.</p>
+<p class="big kid">Художник, который делал картины из трамвайных билетов, фантиков и обёрток — и придумал для этого своё слово: Мерц.</p>
+<div class="give ad"><b>Пока все рассаживаются, раздаём:</b><ul><li>квадрат картона 10×10 см каждому</li><li>общий пакет бумажного «мусора»: чеки, билеты, этикетки, обёртки</li><li>клей-карандаши, ножницы</li></ul></div>
+<div class="give kid"><b>Пока все рассаживаются, раздаём:</b><ul><li>квадрат картона 15×15 см каждому</li><li>бумажки, заранее нарезанные полосками и кусочками: фантики, журналы, билеты, обёртки</li><li>клей-карандаши, детские ножницы</li></ul></div>
+<div><button class="btn red" data-go="warm" data-play><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>Начать разминку и лекцию</button></div>
+</div>
+<img src="img/a_portrait.jpg" alt="Курт Швиттерс">
+</div></section>
+
+<section class="step" id="warm">
+<div id="stage">
+<div id="slide"><img id="simg" src="img/a_portrait.jpg" alt=""></div>
+<div class="key" id="key"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span></span></div>
+<div id="cap">Курт Швиттерс, 1887–1948</div>
+<div class="bar"><i id="sbar"></i></div>
+<div class="ctrl">
+<button class="ic" id="prev" title="Назад"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM9.5 12 18 18V6z"/></svg></button>
+<button class="ic red" id="play" title="Пуск"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+<button class="ic" id="next" title="Дальше"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button>
+<span class="n" id="cnt">1 / 15</span>
+</div>
+</div>
+<aside id="side">
+<span class="tag">Разминка · 15–20 минут</span>
+<h3>Плитка</h3>
+<img src="img/w_schwitters.jpg" alt="">
+<p class="ad">Заклейте квадрат 10×10 обрывками чеков, билетов и обёрток. Вплотную, без щелей, как мозаику. Не выбирайте долго — берите что попалось.</p>
+<p class="kid">Заклейте квадрат 15×15 полосками и кусочками бумаги. Плотно, без дырок, как мозаику. Не выбирайте долго — берите, что попалось.</p>
+<p class="mute">Разминка идёт</p>
+<div id="wclock">00:00</div>
+<div><button class="btn red" data-go="tech">Пропустить разминку</button></div>
+</aside>
+</section>
+
+<section class="step" id="tech"><div class="pad" style="display:flex">
+<div class="txt">
+<span class="tag red">Приём</span>
+<h2>Merz: мусор становится материалом</h2>
+<div class="rules ad">
+<div>Годится любой материал: билет, чек, обёртка, этикетка, марка.</div>
+<div>Смотрим не на то, что написано, а на цвет, шрифт, фактуру и край. Обрывок — это мазок.</div>
+<div>Строим из прямоугольников, как кладку, внахлёст. И даём одному элементу выбиться из ряда.</div>
+</div>
+<div class="rules kid">
+<div>Годится всё: билет, фантик, чек, этикетка, марка.</div>
+<div>Бумажку не читаем, а смотрим на её цвет, буквы и край.</div>
+<div>Строим из прямоугольников, как из кирпичиков. А один кусочек ставим не как все.</div>
+</div>
+<p class="big mute ad">Рваный край — тёплый и живой, резаный — строгий. Соедините оба.</p>
+<p class="big mute kid">Рваный край — пушистый, резаный — ровный. Попробуйте оба.</p>
+<div><button class="btn red" data-go="proj">К проекту</button></div>
+</div>
+<img src="img/t_schwitters.jpg" alt="">
+</div></section>
+
+<section class="step" id="proj"><div class="pad" style="display:flex">
+<div class="txt">
+<span class="tag red ad">Проект · 50 минут</span>
+<span class="tag red kid">Проект · 30 минут</span>
+<h2 class="ad">Merz одной вещи</h2>
+<h2 class="kid">Мерц-портрет любимой вещи</h2>
+<p class="big ad">Выберите вещь-товарища: кофеварку, свой стол, холодильник, телефон. Соберите её портрет из её же бумажных следов: упаковок, чеков, инструкций, ярлыков. Картон 20×20.</p>
+<p class="big kid">Выберите любимую вещь или игрушку: рюкзак, мяч, плюшевого зайца, велосипед. Соберите её портрет из бумажек её цветов: фантиков, журналов, обёрток. Картон 20×20. Можно делать вместе со своим взрослым.</p>
+<div class="lv kid">
+<div><b>Построй.</b> 5–7 прямоугольников вплотную, как кирпичики. Вещь узнаётся по цвету.</div>
+<div><b>Спрячь.</b> Один кусочек поставьте не как все: наискосок или другого цвета. На показе соседи будут его искать.</div>
+<div><b>Приклей настоящее.</b> Добавьте маленькую настоящую вещь: пуговицу, крышечку, ленточку.</div>
+</div>
+<div class="lv ad">
+<div><b>Попроще.</b> 5–7 прямоугольников, плотная кладка, вещь угадывается по цвету и шрифтам.</div>
+<div><b>Посложнее.</b> Плюс один элемент, который выбивается из сетки: по диагонали или другим цветом. Плюс слово-обрывок, как «und» у Швиттерса.</div>
+<div><b>Дерзко.</b> Мерц-рельеф: добавьте объёмную мелочь этой вещи — крышечку, фильтр, пуговицу, кусок провода.</div>
+</div>
+<div id="banner"><span class="ad">15 минут до показа — пора собирать</span><span class="kid">10 минут до показа — пора доклеивать</span></div>
+<div class="trow">
+<div id="timer">50:00</div>
+<button class="ic red" id="tgo" title="Пуск"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>
+<button class="btn ghost" id="tm">−5</button>
+<button class="btn ghost" id="tp">+5</button>
+</div>
+</div>
+<img class="ex" src="img/p_schwitters.jpg" alt="">
+</div></section>
+
+<section class="step" id="show"><div class="pad" style="display:flex">
+<div class="txt">
+<span class="tag red">Показ · 10 минут</span>
+<h2 class="ad">Кладём работы рядом с разминками</h2>
+<h2 class="kid">Выставка: кладём работы рядом</h2>
+<div class="qs ad">
+<div>Какая вещь пришла к вам в гости и почему именно она?</div>
+<div>Какой обрывок оказался самым неожиданным?</div>
+<div>Где у вас тот элемент, что выбивается из ряда?</div>
+</div>
+<div class="qs kid">
+<div>Что за вещь у вас на картинке? Пусть сначала угадают другие.</div>
+<div>Где спрятан кусочек, который стоит не как все? Найдите его у соседа.</div>
+<div>Какая бумажка оказалась самой неожиданной?</div>
+</div>
+<p class="mute ad">В следующий раз: Ханна Хёх, подруга Швиттерса, и фотомонтаж «кухонным ножом».</p>
+<p class="mute kid">В следующий раз: Ханна Хёх, подруга Швиттерса, и картинки из вырезанных фотографий.</p>
+<div class="cred" id="cred"></div>
+</div>
+</div></section>
+
+<audio id="voice" preload="auto"></audio>
+<audio id="music" preload="auto"></audio>
+<script>
+const $=s=>document.querySelector(s);
+const PLAY='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
+const PAUSE='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>';
+let L=[],i=0,playing=false,gap=null,step='start';
+const voice=$('#voice'),music=$('#music');
+const TRACKS=6;
+let musicOn=true,queue=[],track=0;
+function nextTrack(){
+  if(!queue.length){queue=[...Array(TRACKS)].map((_,k)=>k+1).sort(()=>Math.random()-.5);if(queue[0]===track)queue.push(queue.shift())}
+  track=queue.shift();music.src='audio/music-'+track+'.mp3';
+}
+nextTrack();
+music.onended=()=>{nextTrack();music.play().catch(()=>{})};
+let ac=null,gain=null;
+function audioCtx(){
+  if(ac)return;
+  try{ac=new AudioContext();gain=ac.createGain();ac.createMediaElementSource(music).connect(gain).connect(ac.destination)}catch(e){ac=null}
+}
+document.addEventListener('pointerdown',()=>{audioCtx();if(ac&&ac.state==='suspended')ac.resume()},true);
+function musicLevel(){
+  if(!musicOn||step==='start'){music.pause();return}
+  const v=step==='warm'&&playing?0.12:step==='show'?0.25:0.45;
+  if(gain)gain.gain.value=v;else music.volume=v;
+  music.play().catch(()=>{});
+}
+$('#musBtn').onclick=()=>{musicOn=!musicOn;$('#musBtn span').textContent='Музыка: '+(musicOn?'вкл':'выкл');musicLevel()};
+function go(s){
+  step=s;document.querySelectorAll('.step').forEach(e=>e.classList.toggle('on',e.id===s));
+  document.querySelectorAll('nav button[data-s]').forEach(b=>b.classList.toggle('on',b.dataset.s===s));
+  const nb=document.querySelector('nav button.on');nb.parentNode.scrollTo({left:nb.offsetLeft-nb.parentNode.clientWidth/2+nb.offsetWidth/2,behavior:'smooth'});
+  if(s!=='warm'&&playing)toggle();
+  if(s==='warm')startClock();
+  musicLevel();
+}
+document.querySelectorAll('[data-s],[data-go]').forEach(b=>b.onclick=()=>{go(b.dataset.s||b.dataset.go);if(b.hasAttribute('data-play')&&!playing)toggle()});
+function show(n){
+  i=Math.max(0,Math.min(L.length-1,n));const s=L[i];
+  const im=$('#simg');im.style.opacity=0;
+  setTimeout(()=>{im.src='img/a_'+s.img+'.jpg';im.onload=()=>im.style.opacity=1},250);
+  $('#cap').textContent=s.cap;$('#cnt').textContent=(i+1)+' / '+L.length;
+  voice.src='audio/'+s.id+'.mp3';$('#sbar').style.width='0';$('#key').classList.remove('on');
+  if(playing)voice.play().catch(()=>{});
+}
+function toggle(){
+  playing=!playing;clearTimeout(gap);$('#play').innerHTML=playing?PAUSE:PLAY;
+  if(playing)voice.play().catch(()=>{});else voice.pause();
+  musicLevel();
+}
+let KEYS={},keyOff=null;
+fetch('audio/keys.json').then(r=>r.json()).then(k=>KEYS=k).catch(()=>{});
+voice.ontimeupdate=()=>{
+  if(voice.duration)$('#sbar').style.width=(voice.currentTime/voice.duration*100)+'%';
+  const k=KEYS[L[i]&&L[i].id],el=$('#key');
+  if(k&&voice.currentTime>=k.t&&voice.currentTime<k.t+.6&&!el.classList.contains('on')){
+    el.querySelector('span').textContent=k.text;el.classList.add('on');
+    clearTimeout(keyOff);keyOff=setTimeout(()=>el.classList.remove('on'),7000);
+  }
+};
+voice.onended=()=>{
+  if(i<L.length-1)gap=setTimeout(()=>show(i+1),1800);
+  else{playing=false;$('#play').innerHTML=PLAY;$('#cap').textContent='Лекция закончилась. Доклеиваем плитки — и к приёму';musicLevel()}
+};
+$('#play').onclick=toggle;
+$('#prev').onclick=()=>{clearTimeout(gap);show(i-1)};
+$('#next').onclick=()=>{clearTimeout(gap);show(i+1)};
+let wStart=null;
+function startClock(){if(!wStart)wStart=Date.now()}
+const mmss=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0');
+let kids=false,left=50*60,run=false,last=0;
+function drawTimer(){const w=(kids?10:15)*60;$('#timer').textContent=mmss(Math.max(0,left));$('#timer').classList.toggle('warn',left<=w);$('#banner').style.display=left<=w&&left>0?'block':'none';if(left<=0)$('#timer').textContent='Показ!'}
+$('#tgo').onclick=()=>{run=!run;last=Date.now();$('#tgo').innerHTML=run?PAUSE:PLAY};
+$('#tm').onclick=()=>{left=Math.max(60,left-300);drawTimer()};
+$('#tp').onclick=()=>{left+=300;drawTimer()};
+setInterval(()=>{
+  if(wStart)$('#wclock').textContent=mmss((Date.now()-wStart)/1000);
+  if(run){const now=Date.now();left-=(now-last)/1000;last=now;if(left<=0){run=false;$('#tgo').innerHTML=PLAY}drawTimer()}
+},500);
+document.addEventListener('keydown',e=>{
+  if(step==='warm'&&e.key===' '){e.preventDefault();toggle()}
+  if(step==='warm'&&e.key==='ArrowRight')$('#next').click();
+  if(step==='warm'&&e.key==='ArrowLeft')$('#prev').click();
+});
+if(document.getElementById(location.hash.slice(1)))go(location.hash.slice(1));
+function mode(k){
+  kids=k;document.body.classList.toggle('kids',k);
+  document.querySelectorAll('nav .mode button').forEach(b=>b.classList.toggle('on',(b.dataset.m==='kid')===k));
+  try{localStorage.setItem('kk-mode',k?'kid':'ad')}catch(e){}
+  if(playing)toggle();clearTimeout(gap);
+  run=false;$('#tgo').innerHTML=PLAY;left=(k?30:50)*60;drawTimer();
+  fetch(k?'lecture-kids.json':'lecture.json').then(r=>r.json()).then(j=>{L=j;show(0)});
+}
+document.querySelectorAll('nav .mode button').forEach(b=>b.onclick=()=>mode(b.dataset.m==='kid'));
+let saved=null;try{saved=localStorage.getItem('kk-mode')}catch(e){}
+mode(saved==='kid');
+fetch('credits.json').then(r=>r.json()).then(c=>{
+  $('#cred').innerHTML='';
+  for(const k in c){const a=document.createElement('a');a.href=c[k].page;a.target='_blank';a.textContent=c[k].file.slice(0,60)+' — '+c[k].artist.slice(0,40)+', '+c[k].license;const d=document.createElement('div');d.append(a);$('#cred').append(d)}
+});
+</script>
+</body>
+</html>
