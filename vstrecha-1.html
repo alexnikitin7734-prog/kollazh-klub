@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Коллажный клуб · встреча №1</title>
+<meta property="og:title" content="Коллажный клуб · встреча №1 · Швиттерс">
+<meta property="og:image" content="img/v1/p9.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Rubik+Mono+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+header.hero{background:var(--ink);color:var(--paper);padding:72px 0 64px}
+.hero h1{font-size:56px;margin:18px 0 22px}
+.hero h1 span{color:var(--red)}
+.hero p{max-width:680px;font-size:20px;margin:0;color:#e8dfd0}
+section{padding:64px 0 8px}
+section h2{font-size:30px;margin-bottom:12px}
+.lead{color:var(--mute);max-width:720px;margin:0 0 32px}
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.work{margin:0;background:var(--card);border-radius:6px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:12px}
+.work .ph{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
+.work img{max-height:100%;max-width:100%;object-fit:contain;box-shadow:0 2px 10px rgba(31,27,22,.18)}
+.work figcaption{font:700 13px "Manrope",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
+.proc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proc img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+footer{padding:72px 0 48px;color:var(--mute);font-size:14px}
+@media (max-width:820px){
+.wrap{padding:0 16px}
+.hero h1{font-size:34px}
+.hero p{font-size:17px}
+.works{grid-template-columns:repeat(2,1fr);gap:12px}
+.work{padding:12px 12px 10px}
+.proc{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+<span class="tag red">12 ноября 2026</span>
+<h1>Встреча №1 · <span>Швиттерс</span></h1>
+<p>Швиттерс собирал искусство из того, что все выбрасывают: билеты, чеки, обёртки. Мы попробовали так же — и за час на столе появились тамагочи, лягушка-арбуз, сумочки с календариками, тузы под калькой и целая стена из чайных пакетиков.</p>
+</div>
+</header>
+
+<section>
+<div class="wrap">
+<h2>Работы</h2>
+<p class="lead">Восемь работ за одну встречу. Спасибо всем, кто пришёл и ковырялся до конца.</p>
+<div class="works">
+<figure class="work"><div class="ph"><img src="img/v1/tamag.jpg" alt="Тамагочи «TAMAG»" loading="lazy"></div><figcaption>Игорь</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/pie.jpg" alt="Лягушка-арбуз «Pie»" loading="lazy"></div><figcaption>Игорь</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/zya.jpg" alt="Сумочка «Золотое яблоко»" loading="lazy"></div><figcaption>Софья</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/girl.jpg" alt="Коллаж с девушкой и чёрными полосами" loading="lazy"></div><figcaption>Софья</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/ace.jpg" alt="Тузы под калькой" loading="lazy"></div><figcaption>Софья</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/cat.jpg" alt="Котёнок среди цветов" loading="lazy"></div><figcaption>Антон</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/bag.jpg" alt="Сумочка «Коллекционируй моменты»" loading="lazy"></div><figcaption>Ваня</figcaption></figure>
+<figure class="work"><div class="ph"><img src="img/v1/tea.jpg" alt="Стена из чайных пакетиков" loading="lazy"></div><figcaption>Маша</figcaption></figure>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<h2>Как это было</h2>
+<p class="lead">Журналы, чеки, ножницы, клей и 50 минут на таймере.</p>
+<div class="proc">
+<img src="img/v1/p9.jpg" alt="" loading="lazy">
+<img src="img/v1/p8.jpg" alt="" loading="lazy">
+<img src="img/v1/p10.jpg" alt="" loading="lazy">
+<img src="img/v1/p11.jpg" alt="" loading="lazy">
+<img src="img/v1/p15.jpg" alt="" loading="lazy">
+<img src="img/v1/p3.jpg" alt="" loading="lazy">
+</div>
+</div>
+</section>
+
+<footer>
+<div class="wrap"><a href="./">Коллажный клуб</a> · следующая встреча — скоро</div>
+</footer>
+</body>
+</html>
