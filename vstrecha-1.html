@@ -18,21 +18,21 @@ header.hero{background:var(--ink);color:var(--paper);padding:72px 0 64px}
 section{padding:64px 0 8px}
 section h2{font-size:30px;margin-bottom:12px}
 .lead{color:var(--mute);max-width:720px;margin:0 0 32px}
-.works{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.works{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
 .work{margin:0;background:var(--card);border-radius:6px;padding:18px 18px 14px;display:flex;flex-direction:column;gap:12px}
-.work .ph{aspect-ratio:4/5;display:flex;align-items:center;justify-content:center}
-.work img{max-height:100%;max-width:100%;object-fit:contain;box-shadow:0 2px 10px rgba(31,27,22,.18)}
+.work .ph{aspect-ratio:4/5;position:relative}
+.work img{position:absolute;inset:0;margin:auto;max-width:100%;max-height:100%;box-shadow:0 2px 10px rgba(31,27,22,.18)}
 .work figcaption{font:700 13px "Manrope",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--red)}
-.proc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.proc{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .proc img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
 footer{padding:72px 0 48px;color:var(--mute);font-size:14px}
 @media (max-width:820px){
 .wrap{padding:0 16px}
-.hero h1{font-size:34px}
+.hero h1{font-size:26px}
 .hero p{font-size:17px}
-.works{grid-template-columns:repeat(2,1fr);gap:12px}
+.works{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .work{padding:12px 12px 10px}
-.proc{grid-template-columns:repeat(2,1fr);gap:10px}
+.proc{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 }
 </style>
 </head>
