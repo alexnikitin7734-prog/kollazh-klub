@@ -44,8 +44,10 @@ th,td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vert
 th{font:700 13px "Manrope",sans-serif;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
 td:first-child{font-weight:700;white-space:nowrap}
 tr:last-child td{border-bottom:0}
-.route{display:grid;grid-template-columns:auto minmax(0,1fr);gap:40px;align-items:center}
-.route video{display:block;height:min(80vh,720px);width:auto;max-width:100%;border-radius:6px;background:var(--ink)}
+.route{display:grid;grid-template-columns:auto minmax(0,1fr);gap:48px;align-items:center;background:var(--card);border-radius:6px;overflow:hidden}
+.route video{display:block;height:min(80vh,720px);width:auto;max-width:100%;background:var(--ink)}
+.route>div{padding:40px 48px 40px 0}
+.route .lead{margin:0}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .box{background:var(--card);border-radius:6px;padding:24px 26px}
 .box h3{font:700 19px "Manrope",sans-serif;margin-bottom:10px}
@@ -66,8 +68,9 @@ header.hero{padding:48px 0 44px}
 section{padding:52px 0 4px}
 section h2{font-size:22px}
 .idea,.warm,.cols,.things{grid-template-columns:1fr}
-.route{grid-template-columns:1fr;gap:20px}
+.route{grid-template-columns:1fr;gap:0}
 .route video{height:auto;width:100%}
+.route>div{padding:20px}
 .flow .st{grid-template-columns:1fr;gap:6px}
 table,thead,tbody,tr,td{display:block}
 thead{display:none}
@@ -104,10 +107,10 @@ td:first-child{white-space:normal}
 </section>
 
 <section>
-<div class="wrap route">
+<div class="wrap"><div class="route">
 <video src="img/v2/put.mp4" poster="img/v2/put-poster.jpg" controls playsinline preload="none"></video>
 <div><h2>Как дойти к нам</h2><p class="lead">От Атриума — через двор, мимо кафе на Егорьевском, к 2Ас1. Видео показывает весь путь кадр за кадром.</p></div>
-</div>
+</div></div>
 </section>
 
 <section>
